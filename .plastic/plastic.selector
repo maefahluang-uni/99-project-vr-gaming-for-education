@@ -1,0 +1,4 @@
+repository "SuperCool@VRDIE@cloud"
+  path "/"
+    smartbranch "/main/tes243/tea2nd"                   
+     
