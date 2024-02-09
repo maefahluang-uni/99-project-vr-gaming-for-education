@@ -9,3 +9,4 @@ The goal of the project is to make a VR-game based educational lab simulation th
 
 ## URL 
 https://vrdie-6o7lbifujq-uc.a.run.app
+Note* Game may not be runnable on certain browsers due to incompatibility and not having webXR extensions
