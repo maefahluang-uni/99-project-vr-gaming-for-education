@@ -1,25 +1,38 @@
 <!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Number Wizard UI 2020</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
-    <script src="TemplateData/UnityProgress.js"></script>
-    <script src="Build/UnityLoader.js"></script>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebGL Application</title>
+    <style>
+        /* Style for the WebGL canvas */
+        canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="webgl-canvas"></canvas>
+
     <script>
-      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/NumberWizardUI2020-WebGL.json", {onProgress: UnityProgress});
+        // JavaScript code to initialize WebGL context and render graphics
+        window.onload = function() {
+            var canvas = document.getElementById('webgl-canvas');
+            var gl = canvas.getContext('webgl');
+
+            // Check if WebGL is supported by the browser
+            if (!gl) {
+                console.error('WebGL not supported by your browser.');
+                return;
+            }
+
+            // Your WebGL rendering code goes here
+            // For example:
+            gl.clearColor(0.2, 0.3, 0.4, 1.0);
+            gl.clear(gl.COLOR_BUFFER_BIT);
+        };
     </script>
-  </head>
-  <body>
-    <div class="webgl-content" style="width: 100%; height: 100%">
-      <div id="unityContainer"></div>
-      <div class="footer">
-        <div class="webgl-logo"></div>
-        <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
-        <div class="title">Number Wizard UI 2020</div>
-      </div>
-    </div>
-  </body>
+</body>
 </html>
