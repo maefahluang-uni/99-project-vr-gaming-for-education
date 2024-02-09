@@ -1,9 +1,7 @@
-FROM nginx:stable
-
-WORKDIR /webgl/VRsuper
-COPY webgl/ .
-VOLUME /webgl
+FROM nginx:alpine
 
 WORKDIR /etc/nginx/conf.d
-RUN rm -f default.conf
-COPY webgl.conf webgl.conf
+COPY webgl.conf default.conf
+
+WORKDIR /webgl
+COPY webgl/ .
