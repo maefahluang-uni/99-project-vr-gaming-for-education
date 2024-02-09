@@ -1,20 +1,7 @@
-# Use an official Node.js runtime as a parent image
-FROM node:14-alpine
+FROM nginx:alpine
 
-# Set the working directory in the container
-WORKDIR /usr/src/app
+WORKDIR /etc/nginx/conf.d
+COPY webgl.conf default.conf
 
-# Copy package.json and package-lock.json to the working directory
-COPY package*.json ./
-
-# Install dependencies
-RUN npm install --production
-
-# Bundle app source
-COPY . .
-
-# Expose the port that your app runs on
-EXPOSE $PORT
-
-# Start the app
-CMD [ "npm", "start" ]
+WORKDIR /webgl
+COPY webgl/ .
