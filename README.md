@@ -9,5 +9,6 @@ The goal of the project is to make a VR-game based educational lab simulation th
 
 ## URL 
 https://vrdie6-6o7lbifujq-uc.a.run.app/ \
+https://webgl-2ybmgeqx4a-uc.a.run.app/  \
 Note* Game may not be runnable on certain browsers via docker deployment due to incompatibility and not having webXR extensions \
 Runnable game link on itch.io: https://chester006.itch.io/vr-lab-simulation
