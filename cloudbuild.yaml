@@ -26,3 +26,6 @@ images:
 
 substitutions:
   _PROJECT_ID: 'cafe-management-system-405907'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
