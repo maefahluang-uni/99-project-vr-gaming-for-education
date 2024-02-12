@@ -25,7 +25,7 @@ images:
  - 'us-central1-docker.pkg.dev/${_PROJECT_ID}/cafe-management-system-dockers/project-cafe-17'
 
 substitutions:
-  _PROJECT_ID: 'cafe-management-system-405907'
+  _PROJECT_ID: 'vralive'
 
 options:
   logging: CLOUD_LOGGING_ONLY
