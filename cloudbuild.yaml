@@ -1,19 +1,19 @@
 steps:
  # Build the container image
  - name: 'gcr.io/cloud-builders/docker'
-   args: [ 'build', '-t', 'us-central1-docker.pkg.dev/${_PROJECT_ID}/cafe-management-system-dockers/project-cafe-17:$COMMIT_SHA', '.' ]
+   args: [ 'build', '-t', '${_LAZY_CONFIG}:$COMMIT_SHA', '.' ]
  # Push the container image to Artifact Registry
  - name: 'gcr.io/cloud-builders/docker'
-   args: ['push', 'us-central1-docker.pkg.dev/${_PROJECT_ID}/cafe-management-system-dockers/project-cafe-17:$COMMIT_SHA']
+   args: ['push', '${_LAZY_CONFIG}:$COMMIT_SHA']
  # Deploy container image to Cloud Run
  - name: 'gcr.io/cloud-builders/gcloud'
    entrypoint: gcloud
    args:
    - 'run'
    - 'deploy'
-   - 'project-cafe-17'
+   - 'docker-repo'
    - '--image'
-   - 'us-central1-docker.pkg.dev/${_PROJECT_ID}/cafe-management-system-dockers/project-cafe-17:$COMMIT_SHA'
+   - '${_LAZY_CONFIG}:$COMMIT_SHA'
    - '--region'
    - 'us-central1'
    - '--allow-unauthenticated'
@@ -22,10 +22,12 @@ steps:
    - '--port'
    - '8100'
 images:
- - 'us-central1-docker.pkg.dev/${_PROJECT_ID}/cafe-management-system-dockers/project-cafe-17'
+ - '${_LAZY_CONFIG}'
 
 substitutions:
   _PROJECT_ID: 'vralive'
+  _REPO_NAME: 'docker-repo'
+  _LAZY_CONFIG: 'us-central1-docker.pkg.dev/vralive/docker-repo/vralive5'
 
 options:
   logging: CLOUD_LOGGING_ONLY
