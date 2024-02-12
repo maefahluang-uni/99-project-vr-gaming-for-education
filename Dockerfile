@@ -19,7 +19,7 @@
 FROM httpd:latest
 COPY ./httpd.conf /usr/local/apache2/conf/httpd.conf
 
-COPY ./Build/ /usr/local/apache2/htdocs/
+COPY ./dist/ /usr/local/apache2/htdocs/
 
 
 
